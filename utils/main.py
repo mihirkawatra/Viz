@@ -19,6 +19,7 @@ def fetch_url(templateName,url,currency):
         json_data=json.loads(raw)
         response = requests.post(post_url, headers=headers, json=json_data).json()
         exportId =  response['exportId']
+        print("Export ID: " + exportId)
 
         if(exportId != None):
             url=get_url+str(exportId)+"/"
@@ -28,8 +29,9 @@ def fetch_url(templateName,url,currency):
                 response=requests.get(url, headers=headers).json()
                 if(response['progress']==100):
                     break
-                if(time.time()-t > 30.0):
-                    return None,"Timeout Error while creating the video."
+                # if(time.time()-t > 60.0):
+                #     return None,"Timeout Error while creating the video."
+                print(str(response['progress'])+"%...")
                 time.sleep(5)
             return response['output'],None
         else:

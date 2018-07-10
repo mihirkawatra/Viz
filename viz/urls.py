@@ -19,7 +19,10 @@ from api_request import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index),
-    url(r'^create/', include('api_request.urls'), name='create'),
+    url(r'^home/',views.home, name='home'),
     url(r'^', include('django.contrib.auth.urls')),
+    url(r'^create/', views.create, name='create'),
+    url(r'^after/',views.after,name='after'),
+    url(r'^view/',views.view_all, name='view'),
     url(r'^signup/', views.SignUp.as_view(), name='signup'),
 ]

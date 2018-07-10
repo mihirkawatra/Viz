@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends "api_request/base.html" %}
+{% block body %}
+    <div class="container">
+      <br>
+      <div class="jumbotron">
+{% if user.is_authenticated %}
+    <h1>List of Videos</h1>
+    {% if urls %}
+    <ol>
+    {% for url in urls %}
+      <li>
+        <ul>
+          <li>Store: <a href="{{ url.store_url }}">{{ url.store_url }}</a></li>
+          <li>Template: {{ url.template }}</li>
+          <li>Output: <a href="{{ url.vid_url }}">{{ url.vid_url }}</a></li>
+        </ul>
+      </li>
+      <br>
+    {% endfor %}
+  </ol>
+  {% else %}
+  <p>No Records Found!</p>
+  {% endif %}
+{% else %}
+<h1>You are not logged in</h1>
+{% endif %}
+{% endblock %}
+  </body>
+</html>

@@ -42,7 +42,7 @@ currency = "$"
 dic={}
 def get_json(templateName,url,c):
     global currency
-    currency = c
+    currency = str(c)
     url+="/products.json/"
     src = requests.get(url)
 
