@@ -29,8 +29,8 @@ def fetch_url(templateName,url,currency):
                 response=requests.get(url, headers=headers).json()
                 if(response['progress']==100):
                     break
-                # if(time.time()-t > 60.0):
-                #     return None,"Timeout Error while creating the video."
+                if(time.time()-t > 300.0):
+                    return None,"Timeout Error while creating the video."
                 print(str(response['progress'])+"%...")
                 time.sleep(5)
             return response['output'],None
