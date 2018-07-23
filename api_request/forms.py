@@ -4,6 +4,7 @@ TEMPLATE_CHOICES= [
     ('rhombus', 'Rhombus'),
     ('snap', 'Snap'),
     ('vienna', 'Vienna'),
+    ('chameleon', 'Chameleon'),
     ('summer','Summer')
     ]
 CURR_CHOICES = [
