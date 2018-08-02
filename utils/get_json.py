@@ -39,7 +39,6 @@ media=[]
 videoLength=12
 audio="true"
 currency = "$"
-dic={}
 def get_json(templateName,url,c):
     global currency
     currency = str(c)
@@ -63,6 +62,7 @@ def sorter(products):
     return ds(list)
 
 def extract(products,list,templateName):
+    dic={}
     for i in list:
         productName.append(products[i]['title'])
         price.append(str(currency)+str(products[i]['variants'][0]['price']))
